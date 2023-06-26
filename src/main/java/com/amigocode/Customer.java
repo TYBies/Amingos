@@ -1,8 +1,20 @@
 package com.amigocode;
 
-import java.util.Objects;
+import jakarta.persistence.*;
 
+import java.util.Objects;
+@Entity
 public class Customer {
+    @Id
+    @SequenceGenerator(
+            name = "customer_id_sequence",
+            sequenceName = "customer_id_sequence",
+            allocationSize = 4
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "customer_id_sequence"
+    )
     private Integer id;
     private String name;
     private String email;
@@ -27,10 +39,7 @@ public class Customer {
         return Objects.hash(id, name, email, age);
     }
 
-    public Customer(Integer id,
-                    String name,
-                    String email,
-                    Integer age) {
+    public Customer(Integer id,String name,String email,Integer age) {
         this.id = id;
         this.name = name;
         this.email = email;
