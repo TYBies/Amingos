@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\main",
+    "\\src\\main\\java",
+    "\\src\\main\\java\\com",
+    "\\src\\main\\java\\com\\amigocode",
+    "\\src\\main\\java\\com\\amigocode\\controller",
+    "\\src\\main\\java\\com\\amigocode\\mapper",
+    "\\src\\main\\java\\com\\amigocode\\repository",
+    "\\src\\main\\java\\com\\amigocode\\service"
+  ],
+  "SelectedNode": "\\docker-compose.yml",
+  "PreviewInSolutionExplorer": false
+}
