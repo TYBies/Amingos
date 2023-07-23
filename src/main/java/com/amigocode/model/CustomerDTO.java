@@ -1,4 +1,4 @@
-package com.amigocode;
+package com.amigocode.model;
 
 public class CustomerDTO {
     private Integer id;
@@ -6,6 +6,15 @@ public class CustomerDTO {
     private String email;
     private Integer age;
 
+    public CustomerDTO(Integer id,String name,String email,Integer age ){
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    
+    }
+    public CustomerDTO() {
+    }
     public Integer getId() {
         return id;
     }
@@ -36,5 +45,15 @@ public class CustomerDTO {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", name='" + getName() + "'" +
+            ", email='" + getEmail() + "'" +
+            ", age='" + getAge() + "'" +
+            "}";
     }
 }

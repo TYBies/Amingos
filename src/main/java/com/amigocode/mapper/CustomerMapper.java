@@ -1,20 +1,19 @@
-package com.amigocode;
+package com.amigocode.mapper;
 
+import com.amigocode.model.Customer;
+import com.amigocode.model.CustomerDTO;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class CustomerMapper implements Mapper<Customer,CustomerDTO>{
+public class CustomerMapper implements Mapper<Customer, CustomerDTO> {
     @Override
     public CustomerDTO toDto(Customer customer) {
-        CustomerDTO customerDto = new CustomerDTO();
-        customerDto.setName(customer.getName());
-        customerDto.setId(customer.getId());
-        customerDto.setAge(customer.getAge());
-        customerDto.setEmail(customer.getEmail());
-        return customerDto;
+        return new CustomerDTO(customer.getId(), customer.getName(), customer.getEmail(), customer.getAge());       
+       
     }
 
     @Override
@@ -37,8 +36,14 @@ public class CustomerMapper implements Mapper<Customer,CustomerDTO>{
 
     @Override
     public List<CustomerDTO> toDtoList(List<Customer> customers) {
-        return customers.stream()
-                .map(this::toDto)
-                .collect(Collectors.toList());
+        // return customers.stream()
+        //         .map(this::toDto)
+        //         .collect(Collectors.toList());
+
+        List<CustomerDTO> dtoList = new ArrayList<>();
+        for (Customer customer : customers) {
+            dtoList.add(toDto(customer));
+        }
+        return dtoList;
     }
 }
